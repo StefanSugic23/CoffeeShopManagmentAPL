@@ -1,0 +1,17 @@
+LowOnStock ;pos
+⍝ Finds products with low stock levels and shows the required refill quantity.
+
+pos ← (Quantity≤30)/⍳⍴Quantity
+
+:If (⍴pos)<1
+⎕←'Items are enough stacked!'
+
+:Else
+{
+⎕←'---------------------'
+⎕←'Item low on stock: ' , ItemName[⍵]
+⎕←' Quantity: ' , Quantity[⍵]
+⎕← 'Need to be refilled with at least: ' , (31 - Quantity[⍵])
+⎕←'---------------------'
+}¨pos
+:EndIf

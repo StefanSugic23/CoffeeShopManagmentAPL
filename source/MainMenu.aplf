@@ -1,0 +1,155 @@
+MainMenu
+choice←0
+
+:Repeat
+
+⎕←'================================'
+⎕←'     ESPRESSO HOUSE SYSTEM'
+⎕←'================================'
+⎕←''
+⎕←'1. Add Product'
+⎕←'2. Remove Product'
+⎕←'3. Sell Item'
+⎕←'4. Update Price'
+⎕←'5. Return Money'
+⎕←'6. Check Stock'
+⎕←'7. Check If Product Exists'
+⎕←'8. Refill Stock'
+⎕←'9. Print Receipt'
+⎕←'10. Inventory Details'
+⎕←'11. Total Revenue'
+⎕←'12. Statistic of Daily Transactions'
+⎕←'13. Low On Stock Products'
+⎕←'14. Cheapest Item'
+⎕←'15. Top 3 The Most Expensive Item'
+⎕←'16. Most Expensive Item'
+⎕←'17. Login'
+⎕←'0. Exit'
+⎕←''
+
+choice←⎕
+
+:Select choice
+
+:Case 1
+    ⎕←'Product name:'
+    name←⎕
+    ⎕←'Price:'
+    price←⎕
+    ⎕←'Quantity:'
+    qty←⎕
+    ⎕←'Sold:'
+    sold←⎕
+
+    AddProduct (name price qty sold)
+
+
+:Case 2
+    ⎕←'Product name:'
+    item←⎕
+
+    RemoveProduct item
+
+
+:Case 3
+    ⎕←'Product name:'
+    item←⎕
+    ⎕←'Quantity:'
+    Qty←⎕
+
+    item SellItem Qty
+
+
+:Case 4
+    ⎕←'Product name:'
+    item←⎕
+    ⎕←'New price:'
+    price←⎕
+
+    item UpdatePrice price
+
+
+:Case 5
+    ⎕←'Product name:'
+    item←⎕
+    ⎕←'Returned quantity:'
+    qty←⎕
+
+    item ReturFunction qty
+
+
+:Case 6
+    ⎕←'Product name:'
+    item←⎕
+
+    CheckStock item
+
+
+:Case 7
+    ⎕←'Product name:'
+    name←⎕
+
+    CheckIfItemIsOnTheList name
+
+
+:Case 8
+    ⎕←'Product name:'
+    item ← ⎕
+    ⎕←'Quantity of refill:'
+    qty ← ⎕
+
+
+    item RefillStock qty
+
+
+:Case 9
+    ⎕←'Receipt number:'
+    n←⎕
+
+    Receipt n
+
+
+:Case 10
+    AllProductDetails
+
+
+:Case 11
+    TotalRevenue
+
+
+:Case 12
+    StatisticsOfTheDailyRaport
+
+:Case 13
+LowOnStock
+
+:Case 14
+CheapestItem
+
+:Case 15
+Top3ExpensiveItems
+
+:Case 16
+MostExpensiveItem
+
+:Case 17
+⎕←'Cashier name: '
+cashier←⎕
+⎕←'Password: '
+pass←⎕
+
+cashier Login pass
+
+
+:Case 0
+    ⎕←''
+    ⎕←'Thank you for using Espresso House System'
+
+
+:Else
+    ⎕←'Invalid option'
+
+
+:EndSelect
+
+:Until choice=0

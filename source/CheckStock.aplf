@@ -1,0 +1,15 @@
+CheckStock item;pos
+⍝ Checks the current stock level and displays inventory information for products.
+pos ← ItemName⍳⊂item
+:If pos>(⍴ItemName)
+⎕ ← 'Item not Found'
+:Else
+⎕ ← 'Item name: ' , ItemName[pos]
+⎕ ← 'Current Stock is ' , Quantity[pos]
+    :If Quantity[pos] ≥ 30
+    ⎕ ← ' Quantity is above the minimum'
+    :Else
+    ⎕ ← ' Quantity is lower than minimum'
+    ⎕ ← 'We need at least' (30 - Quantity[pos]) , ' of units to fill up the minimum'
+    :EndIf
+:EndIf

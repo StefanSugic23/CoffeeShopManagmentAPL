@@ -1,0 +1,24 @@
+ FullDailyRaport;i
+⍝ Creates a daily sales report containing revenue, orders and sales information.
+ ⎕←'-----------------------'
+ ⎕←'Full Daily Raport'
+ ⎕←''
+ ⎕←'ESPRESSO HOUSE SWEDEN'
+ ⎕←''
+ ⎕←'-----------------------'
+ ⎕←''
+
+ {
+     Receipt2 ⍵
+     ⎕←''
+     ⎕←'-----------------------'
+     ⎕←''
+ }¨⍳≢Orders
+
+ ⎕←'-----------------------'
+ ⎕←'End of the Raport'
+ ⎕←''
+ ⎕←'ESPRESSO HOUSE SWEDEN'
+ ⎕←orgnmr
+ ⎕←''
+ ⎕←'-----------------------'

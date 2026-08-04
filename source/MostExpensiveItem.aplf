@@ -1,0 +1,7 @@
+ MostExpensiveItem;pos
+ ⍝ Finds and displays the most expensive product available in the inventory.
+ pos←Price⍳⌈/Price
+ ⎕←'Most Expensive item on the list is: '
+ ⎕←ItemName[pos]
+ ⎕←' With price of: '
+ ⎕←Price[pos],' kr.'

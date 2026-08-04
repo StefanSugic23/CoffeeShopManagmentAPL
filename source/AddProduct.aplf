@@ -1,0 +1,29 @@
+AddProduct x
+⍝ Adds a new product to the inventory.
+(name price qty sold)←x
+
+:If 326≠⎕DR name
+    ⎕←'Error: Product name must be text or enclosed.'
+
+:ElseIf 2>≡name
+    ⎕←'Error: Product must be enclosed⊂.'
+
+:ElseIf price≤0
+    ⎕←'Error: Price must be greater than zero.'
+
+:ElseIf qty≤0
+    ⎕←'Error: Quantity must be greater than zero.'
+
+:ElseIf sold<0
+    ⎕←'Error: Sold cannot be negative.'
+
+:Else
+
+    ItemName←ItemName,name
+    Price←Price,price
+    Quantity←Quantity,qty
+    Sold←Sold,sold
+
+    ⎕←'Product added successfully.'
+
+:EndIf

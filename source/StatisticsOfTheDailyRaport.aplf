@@ -1,0 +1,67 @@
+StatisticsOfTheDailyRaport ;i;hours;uniqhours;sumuniq;mostsellhour
+⍝ Generates daily sales statistics report.
+hours← (2↑¨OrderTime)
+uniqhours← ∪hours
+sumuniq ← {(+/uniqhours⍳hours)=⍵}¨⍳⍴uniqhours
+mostsellhour ← uniqhours[sumuniq⍳⌈/sumuniq]
+
+
+⎕←'Statistics of the Daily Raport'
+⎕←'=============================='
+⎕←'ESPRESSO HOUSE SWEDEN'
+⎕←orgnmr
+⎕←''
+⎕←''
+
+⎕←'Total Revenue: '
+⎕← +/(Price[∊Orders])
+⎕←''
+⎕←'-------------------'
+⎕←'Sales by the product:'
+
+
+:For i :In ⍳⍴ItemName
+⎕←'-----------'
+⎕←'Item Name: ' , ItemName[i]
+⎕←'Total sold products: ' , +/∊Orders=i
+⎕←'Total Revenue by the product: ' , (+/∊Orders=i)×Price[i]
+⎕←'-----------'
+:EndFor
+
+⎕←'Most selling product of the day:'
+⎕←'Item Name: ' , ItemName[counts⍳⌈/counts]
+⎕←'Total Sales: ' , ⌈/counts
+⎕←''
+⎕←'--------------------------------'
+⎕←''
+⎕←'Least selling product of the day: '
+⎕←'Item Name: ' , ItemName[counts⍳⌊/counts]
+⎕←'Total Sales: ' , ⌊/counts
+⎕←''
+⎕←'--------------------------------'
+⎕←''
+⎕←'Total products sold: ' , ≢(∊Orders)
+⎕←'Average Price of product sold: ' , (+/(Price[∊Orders]))÷(≢(∊Orders))
+⎕←'Total Guests: ' , Guests
+⎕←''
+⎕←''
+⎕←'------------------------'
+⎕←'Most selling hour time of the day: '
+⎕←'From: ',⍕mostsellhour,':00 , Untill: ', ⍕mostsellhour,':59.'
+⎕←'Total sold products during that time: ' , +/(uniqhours⍳hours)=(sumuniq⍳⌈/sumuniq)
+⎕←'-------------------------'
+⎕←''
+⎕←''
+⎕←'Total guests with discount: ' , +/Discount∊⊂'Yes'
+⎕←'Total guests without discount: ' , +/Discount∊⊂'No'
+⎕←'--------------------------------'
+⎕←''
+⎕←''
+⎕←'Total payments with card: ', +/Payment∊⊂'Card'
+⎕←'Total payments with swish: ', +/Payment∊⊂'Swish'
+⎕←''
+⎕←''
+⎕←'------------------------------'
+⎕←'==================================='
+⎕←'End of the statistics of the daily raport'
+⎕←'ESPRESSO HOUSE SWEDEN'

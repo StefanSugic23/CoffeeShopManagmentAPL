@@ -1,0 +1,6 @@
+ CheapestItem
+⍝ Finds and displays the cheapest product available in the inventory.
+ pos←Price⍳⌊/Price
+ ⎕←''
+ ⎕←'Cheapest product on the list is: ',ItemName[pos]
+ ⎕←'With the price of: ',⍕Price[pos],' sek'

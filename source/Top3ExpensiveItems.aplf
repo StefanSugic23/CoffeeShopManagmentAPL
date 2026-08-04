@@ -1,0 +1,10 @@
+ Top3ExpensiveItems;top3
+⍝ Displays the three cheapest products sorted by price.
+ top3←3↑(⍒Price)
+ {
+     ⎕←'------------------------------------'
+     ⎕←'Number: ',⍕⍵,' on the list is: '
+     ⎕←'Name: ',ItemName[top3[⍵]]
+     ⎕←' With the price of: ',⍕Price[top3[⍵]],' sek'
+     ⎕←''
+ }¨⍳≢top3

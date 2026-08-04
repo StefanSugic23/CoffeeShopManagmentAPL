@@ -1,0 +1,14 @@
+RemoveProduct item;pos;shp
+⍝ Removes an existing product from the inventory and updates all related product data.
+pos ← ItemName⍳⊂item
+shp ← ⍴ItemName
+
+:If pos>shp
+⎕←'Item not found'
+:Else
+ItemName ← ItemName ~ ItemName[pos]
+Price ← Price ~ Price[pos]
+Quantity ← Quantity ~ Quantity[pos]
+Sold ← Sold~Sold[pos]
+⎕←'Product removed: ' item
+:EndIf

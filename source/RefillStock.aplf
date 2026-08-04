@@ -1,0 +1,27 @@
+item RefillStock qty;pos;shp
+⍝ Increases the quantity of a selected product to refill inventory stock.
+⍝ As a left argument write 'name'. As a right argument write quantity.
+pos ← ItemName⍳⊂item
+shp ← ⍴ItemName
+
+:If shp<pos
+⎕←'Item Not Found'
+
+:ElseIf qty>50
+⎕←'Exceded maximum of products! Refill with less stocks'
+
+:ElseIf (Quantity[pos]+qty)>100
+ ⎕←'Too much products! Try with less.'
+:Else
+Quantity[pos] ← Quantity[pos] + qty
+Costs ← Costs + ((Price[pos] × 0.25) × qty)
+
+⎕← 'Item name: ' , item
+⎕← ' is refilled with: ' , qty , ' of stocks.'
+⎕←''
+⎕←' Quantity of the item after refill: ' , Quantity[pos]
+⎕←''
+⎕←'Costs of purchase: ' ,  ((Price[pos] × 0.25) × qty)
+⎕←''
+⎕←'Total costs: ' , Costs
+:EndIf

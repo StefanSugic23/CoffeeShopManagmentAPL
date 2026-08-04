@@ -1,0 +1,12 @@
+ cashier Login pass ;pos;shp
+ pos ← Cashier⍳⊂cashier
+ shp← ⍴Cashier
+
+ :If pos≤shp
+ :AndIf pass=password
+ ⎕←'Login successful!'
+ ⎕←'Time punched in: ', (⍕(⎕TS[1]),'-',⍕(⎕TS[2]),'-',⍕(⎕TS[3]),' ',⍕(⎕TS[4]),':',⍕(⎕TS[5]))
+
+ :Else
+ ⎕←'Wrong name or password!'
+ :EndIf

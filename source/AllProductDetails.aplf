@@ -1,0 +1,14 @@
+ AllProductDetails;i
+ ⍝ Displays complete inventory details.
+ :For i :In (⍳⍴ItemName)
+     ⎕←'------------------'
+     ⎕←' Name of the item: ',ItemName[i]
+     ⎕←''
+     ⎕←' Price of the item: ',Price[i]
+     ⎕←''
+     ⎕←' Quantity: ',Quantity[i]
+     ⎕←''
+     ⎕←'Total sale of the item: ',Sold[i]
+     ⎕←'-------------------'
+     ⎕←''
+ :EndFor
