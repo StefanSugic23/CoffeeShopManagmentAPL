@@ -1,0 +1,28 @@
+item ReturFunction qty;shp;pos
+⍝ Processes a refund by returning products to stock and updating sales information.
+⍝ As a left argument enter 'name'. As a right argument enter quantity.
+pos ← ItemName⍳⊂item
+shp ← ⍴ItemName
+
+⎕ ←'==================='
+⎕←'Kvittorättelse'
+⎕←'Espresso House Sweden'
+⎕←'===================='
+⎕←''
+:If pos>shp
+⎕← 'Item not found!'
+:ElseIf (Sold[pos]-qty)<0
+⎕←'Error in number of returned items'
+ :Else
+ Sold[pos]←Sold[pos]-qty
+Svinn ← Svinn+ (0.25×((Price[pos])×qty))
+Revenue ← Revenue - (0.25×((Price[pos])×qty))
+
+⎕← 'Item name: ' , ItemName[pos]
+⎕← 'Sold items: ' , qty , ' , Price of the item: ', Price[pos]
+⎕← ''
+⎕← 'Money returned back: ' (qty × Price[pos]), ' SEK'
+⎕←'===================='
+⎕←''
+⎕←'Money will be returned in 2 days'
+:EndIf

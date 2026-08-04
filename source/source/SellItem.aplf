@@ -1,0 +1,38 @@
+Item SellItem  Qty;pos;total;shp
+⍝ Processes a product sale by updating stock quantity and total sold amount.
+    pos←ItemName⍳⊂Item
+    shp←⍴ItemName
+    :If pos>shp
+        ⎕←'Item not found.'
+    :ElseIf Quantity[pos]=0
+        ⎕←'Item is out of stock.'
+    :ElseIf Quantity[pos]<Qty
+        ⎕←'Not enough stock.'
+    :Else
+        Quantity[pos]←Quantity[pos]-Qty
+        Sold[pos]←Sold[pos]+Qty
+        total←Qty×Price[pos]
+        Revenue←Revenue+total
+        ⎕←'==========================='
+        ⎕←'ESPRESSO HOUSE'
+        ⎕←'==========================='
+        ⎕←''
+        ⎕←'Item Sold:'
+        ⎕←Item
+        ⎕←''
+        ⎕←'Quantity:'
+        ⎕←Qty
+        ⎕←''
+        ⎕←'Price per item:'
+        ⎕←Price[pos]
+        ⎕←''
+        ⎕←'Total price:'
+        ⎕←total
+        ⎕←''
+        ⎕←'Remaining stock:'
+        ⎕←Quantity[pos]
+        ⎕←''
+        ⎕←'Total Revenue:'
+        ⎕← Revenue
+        ⎕←'==========================='
+    :EndIf

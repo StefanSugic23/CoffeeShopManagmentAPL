@@ -1,0 +1,12 @@
+item UpdatePrice price;pos;shp
+⍝ Updates the price of an existing product in the inventory.
+
+pos ← ItemName⍳⊂item
+shp ← ⍴ItemName
+⎕←' Old price of the item: ' , Price[pos]
+:If pos>shp
+⎕←'Item not found'
+:Else
+Price[pos] ← price
+⎕ ←  'New price of the item: ' price
+:EndIf

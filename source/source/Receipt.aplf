@@ -1,0 +1,22 @@
+ Receipt n;items;prices;total
+⍝ Generates a customer receipt showing purchased items, prices and total amount.
+ items←⊃Orders[n]
+ prices←Price[items]
+ total←+/prices
+ ⎕←'--------------------'
+ ⎕←'Espresso House'
+ ⎕←'Receipt: ',⍕ReceiptNo[n]
+ ⎕←'Time: ',OrderTime[n]
+ ⎕←'--------------------'
+ {
+     ⎕←'Item sold:',ItemName[⍵]
+     ⎕←'Price: ',Price[⍵]
+ }¨items
+ ⎕←'--------------------'
+ ⎕←'Total: ',⍕total,' SEK'
+ ⎕←'Payment: ',Payment[n]
+ ⎕←'Moms: 12%. Moms: ',(total×Moms),' SEK.'
+ ⎕←'Netto: ',(total-(total×Moms)),' SEK.'
+ ⎕←'--------------------'
+
+ ⎕←orgnmr

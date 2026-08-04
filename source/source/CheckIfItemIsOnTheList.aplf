@@ -1,0 +1,7 @@
+ CheckIfItemIsOnTheList←{
+⍝ Checks if a product exists in the inventory and displays its price information.
+⍝ As argument write → 'name'
+     (ItemName⍳⊂⍵)>(≢ItemName):⎕←'Item not found'
+     ⎕←'Item Found: '
+     ⎕←'Item Name:',ItemName[(ItemName⍳⊂⍵)],' with the price of: ',⍕Price[(ItemName⍳⊂⍵)]
+ }

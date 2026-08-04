@@ -24,7 +24,6 @@ choice←0
 ⎕←'15. Top 3 The Most Expensive Item'
 ⎕←'16. Most Expensive Item'
 ⎕←'17. Login'
-⎕←'18. Print All Receipts'
 ⎕←'0. Exit'
 ⎕←''
 
@@ -140,9 +139,6 @@ cashier←⎕
 pass←⎕
 
 cashier Login pass
-
-:Case 18
-FullDailyRaport
 
 
 :Case 0

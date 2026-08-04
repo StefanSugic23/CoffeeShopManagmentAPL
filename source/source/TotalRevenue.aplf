@@ -1,0 +1,19 @@
+ TotalRevenue
+⍝ Calculates the total revenue generated from all sold products.
+ ⎕←'================='
+ ⎕←'Total Revenue by sales: '
+ ⎕←Revenue
+ ⎕←''
+
+ {
+     ⎕←'Item name: '
+     ⎕←ItemName[⍵]
+     ⎕←''
+     ⎕←'Numbers of sold items:'
+     ⎕←Sold[⍵]
+     ⎕←''
+     ⎕←'Revenue by product:'
+     ⎕←Sold[⍵]×Price[⍵]
+     ⎕←''
+     ⎕←'=================='
+ }¨⍳≢ItemName
