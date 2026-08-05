@@ -17,7 +17,7 @@ The project was created using **standard Dyalog APL without external libraries**
 After opening the workspace file:
 
 ```
-CoffeeShopManagementAPL.dws
+EHManagment.dws
 ```
 
 run:
